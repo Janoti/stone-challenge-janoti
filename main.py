@@ -1,7 +1,8 @@
 # Desafio Stone Devops SRE
 # API
-from flask import Flask, jsonify, abort, request
 import os
+
+from flask import Flask, jsonify, abort, request
 
 app = Flask(__name__)
 port = int(os.environ.get("PORT", 5000))
