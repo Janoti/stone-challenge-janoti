@@ -1,6 +1,6 @@
 # Stone Challenge
 
-### Para rodar a aplicação localmente em containers Docker:
+## Para rodar a aplicação localmente em containers Docker:
 
     * Instale o Docker: ```apt install docker```
 
@@ -12,18 +12,18 @@
  
     -- Abra seu navegador e digite: http://127.0.0.1:5000/users
     
-### Para rodar localmente no cluster Kubernetes:
+## Para rodar localmente no cluster Kubernetes:
 
    ``` $make k8s ```
 
-### Rotas do app
+## Rotas do app
 
      -- http://127.0.0.1:5000/users #retorna a lista de usuários
 
      -- http://127.0.0.1:5000/users/cpf #retorna o usuário pesquisando pelo cpf
 
 
-### Acesso pelo GCP - Google
+## Acesso pelo GCP - Google
 
     * Retorna a lista de usuários
 
@@ -42,7 +42,7 @@
          "email": "ninguemusa@yahoo.com.br",
          "data_nasc": "19/01/1989"}' ```
 
-### Monitoramento ###
+## Monitoramento 
 
 * Principais gráficos de monitoramento do Cluster Kubernetes em Grafana com GKE CLuster Monitoring Plugin
 ``` http://34.71.211.208:3000/d/Z1HlU5FMa/gke-cluster-monitoring?orgId=1&from=1605647426677&to=1605651026679&var-datasource=Google%20Cloud%20Monitoring&var-project= ```
@@ -51,7 +51,7 @@
 ``` Senha : stone ```     
      
      
-### TERRAFORM ###
+## TERRAFORM 
 
 -- Para gerar toda a infra no GKE, executar dentro da pasta terraform-gke
 
@@ -63,7 +63,7 @@
     
     
 
-### Acesso pelo PAAS Heroku: ###
+## Acesso pelo PAAS Heroku: 
 
 * Retorna a lista de usuários
 
