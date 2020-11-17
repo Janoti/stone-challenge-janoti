@@ -42,7 +42,26 @@
          "email": "ninguemusa@yahoo.com.br",
          "data_nasc": "19/01/1989"}' ```
 
+### Monitoramento ###
 
+* Principais gráficos de monitoramento do Cluster Kubernetes em Grafana com GKE CLuster Monitoring Plugin
+``` http://34.71.211.208:3000/d/Z1HlU5FMa/gke-cluster-monitoring?orgId=1&from=1605647426677&to=1605651026679&var-datasource=Google%20Cloud%20Monitoring&var-project= ```
+
+``` Login: stone ```
+``` Senha : stone ```     
+     
+     
+### TERRAFORM ###
+
+-- Para gerar toda a infra no GKE, executar dentro da pasta terraform-gke
+
+    -- terraform init
+    -- terraform apply
+    -- Após o término do Terraform criar a infra, execute:
+    -- make build # vai pegar as credenciais do gke para o gcloud e rodar kubectl apply no deployment.yaml, criando o serviço e o deploy no gke. A imagem Docker está registrada em gcr.io/stone-challenge-janoti/challenge-stone
+    
+    
+    
 
 ### Acesso pelo PAAS Heroku: ###
 
@@ -62,15 +81,4 @@
      "cpf": 122312321321,
      "email": "ninguemusa@yahoo.com.br",
      "data_nasc": "19/01/1989"}' ```
-     
-     
-     
-TERRAFORM
-
--- Para gerar toda a infra no GKE, executar dentro da pasta terraform-gke
-
-    -- terraform init
-    -- terraform apply
-    -- Após o término do Terraform criar a infra, execute:
-    -- make build # vai pegar as credenciais do gke para o gcloud e rodar kubectl apply no deployment.yaml, criando o serviço e o deploy no gke. A imagem Docker está registrada em gcr.io/stone-challenge-janoti/challenge-stone
                 
