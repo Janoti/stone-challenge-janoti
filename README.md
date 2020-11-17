@@ -8,13 +8,13 @@
 
     -- Dentro do diretório, rode:
 
-   ``` make local ```
+   ``` $make local ```
  
     -- Abra seu navegador e digite: http://127.0.0.1:5000/users
     
 ### Para rodar localmente no cluster Kubernetes:
-    
-    -- $ make k8s
+
+   ``` $make k8s ```
 
 ### Rotas do app
 
@@ -35,12 +35,12 @@
  
     -- Para inserir um novo usuário, substitua os dados do usuário na estrutura abaixo:
 
-    curl --location --request POST 'http://34.67.24.110/users' \--header 'Content-Type: application/json' \--data-raw '{
-     "nome": "InsiraSeuNome",
-     "sobrenome": "InsiraSeu Sobrenome",
-     "cpf": 122312321321,
-     "email": "ninguemusa@yahoo.com.br",
-     "data_nasc": "19/01/1989"}'
+       curl --location --request POST 'http://34.67.24.110/users' \--header 'Content-Type: application/json' \--data-raw '{
+         "nome": "InsiraSeuNome",
+         "sobrenome": "InsiraSeu Sobrenome",
+         "cpf": 122312321321,
+         "email": "ninguemusa@yahoo.com.br",
+         "data_nasc": "19/01/1989"}'
 
 
 
@@ -52,7 +52,7 @@ Acesso pelo PAAS Heroku:
 
 -- Retorna o usuário pesquisando pelo cpf
 
-    https://stone-challenge-janoti.herokuapp.com/users/
+   ``` https://stone-challenge-janoti.herokuapp.com/users/ ```
 
 -- Para inserir um novo usuário, substitua os dados do usuário na estrutura abaixo:
 
