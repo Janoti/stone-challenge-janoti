@@ -11,6 +11,10 @@ Para rodar localmente:
     -- $ make local
  
     -- Abra seu navegador e digite: http://127.0.0.1:5000/users
+    
+Para rodar localmente no cluster Kubernetes:
+    
+    -- $ make k8s
 
 Rotas
 
