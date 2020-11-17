@@ -1,45 +1,84 @@
-stone-challenge
-Para rodar localmente:
+# Stone Challenge
 
--- Instale o Docker: apt install docker
+### Para rodar a aplicação localmente em containers Docker:
 
--- Clone o repositorio da app
+    * Instale o Docker: ```apt install docker```
 
--- Dentro do diretório, rode:
+    * Clone o repositorio da app
 
--- $ docker build ./ -t challenge-stone # para buildar o container
+    * Dentro do diretório, rode:
 
--- Confira se seu container está ok:
+   ``` $make local ```
+ 
+    -- Abra seu navegador e digite: http://127.0.0.1:5000/users
+    
+### Para rodar localmente no cluster Kubernetes:
 
--- $ docker images # procure pelo imagem challenge-stone
+   ``` $make k8s ```
 
--- Rode $ docker run -p 5000:5000 challenge-janoti #para executar mapeando a porta 5000
+### Rotas do app
 
--- Abra seu navegador e digite: http://127.0.0.1:5000/users
+     -- http://127.0.0.1:5000/users #retorna a lista de usuários
 
-Rotas
+     -- http://127.0.0.1:5000/users/cpf #retorna o usuário pesquisando pelo cpf
 
--- http://127.0.0.1:5000/users #retorna a lista de usuários
 
--- http://127.0.0.1:5000/users/cpf #retorna o usuário pesquisando pelo cpf
+### Acesso pelo GCP - Google
 
--- Para inserir um novo usuário, substitua os dados do usuário na estrutura abaixo:
+    * Retorna a lista de usuários
 
-Acesso pelo PAAS Heroku:
+    -- http://34.67.24.110/users
 
--- Retorna a lista de usuários
+    * Retorna o usuário pesquisando pelo cpf
 
-https://stone-challenge-janoti.herokuapp.com/users
+    -- http://34.67.24.110/users/<cpf>
+ 
+    * Para inserir um novo usuário, substitua os dados do usuário na estrutura abaixo:
 
--- Retorna o usuário pesquisando pelo cpf
+       ``` curl --location --request POST 'http://34.67.24.110/users' \--header 'Content-Type: application/json' \--data-raw '{
+         "nome": "InsiraSeuNome",
+         "sobrenome": "InsiraSeu Sobrenome",
+         "cpf": 122312321321,
+         "email": "ninguemusa@yahoo.com.br",
+         "data_nasc": "19/01/1989"}' ```
 
-https://stone-challenge-janoti.herokuapp.com/users/
+### Monitoramento ###
 
--- Para inserir um novo usuário, substitua os dados do usuário na estrutura abaixo:
+* Principais gráficos de monitoramento do Cluster Kubernetes em Grafana com GKE CLuster Monitoring Plugin
+``` http://34.71.211.208:3000/d/Z1HlU5FMa/gke-cluster-monitoring?orgId=1&from=1605647426677&to=1605651026679&var-datasource=Google%20Cloud%20Monitoring&var-project= ```
 
-curl --location --request POST 'https://stone-challenge-janoti.herokuapp.com/users' \--header 'Content-Type: application/json' \--data-raw '{
- "nome": "InsiraSeuNome",
- "sobrenome": "InsiraSeu Sobrenome",
- "cpf": 122312321321,
- "email": "ninguemusa@yahoo.com.br",
- "data_nasc": "19/01/1989"
+``` Login: stone ```
+``` Senha : stone ```     
+     
+     
+### TERRAFORM ###
+
+-- Para gerar toda a infra no GKE, executar dentro da pasta terraform-gke
+
+    -- terraform init
+    -- terraform apply
+    -- Após o término do Terraform criar a infra, execute:
+    -- make build # vai pegar as credenciais do gke para o gcloud e rodar kubectl apply no deployment.yaml, criando o serviço e o deploy no gke. A imagem Docker está registrada em gcr.io/stone-challenge-janoti/challenge-stone
+    
+    
+    
+
+### Acesso pelo PAAS Heroku: ###
+
+* Retorna a lista de usuários
+
+    ``` https://stone-challenge-janoti.herokuapp.com/users ```
+
+* Retorna o usuário pesquisando pelo cpf
+
+   ``` https://stone-challenge-janoti.herokuapp.com/users/ ```
+
+* Para inserir um novo usuário, substitua os dados do usuário na estrutura abaixo:
+
+   ``` curl --location --request POST 'https://stone-challenge-janoti.herokuapp.com/users' \--header 'Content-Type: application/json' \--data-raw '{
+     "nocme": "InsiraSeuNome",
+     "sobrenome": "InsiraSeu Sobrenome",
+     "cpf": 122312321321,
+     "email": "ninguemusa@yahoo.com.br",
+     "data_nasc": "19/01/1989"}' ```
+                
