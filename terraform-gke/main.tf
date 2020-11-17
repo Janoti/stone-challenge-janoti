@@ -2,9 +2,9 @@
 data "google_client_config" "default" {}
 
 ## Variables
-variable "project" {}
+variable "project" {default = "stone-challenge-janoti"}
 variable "region" { default = "us-central1" }
-variable "cluster_name" {}
+variable "cluster_name" {default= "stone-challenge-cluster"}
 variable "network" { default = "default" }
 variable "subnetwork" { default = "" }
 variable "ip_range_pods" { default = "" }

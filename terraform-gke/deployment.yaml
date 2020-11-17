@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: desafio-stone-janoti-service
+  name: desafio-stone-janoti-service-gke
 spec:
   selector:
     app: desafio-stone-janoti
   ports:
   - protocol: "TCP"
-    port: 6000
+    port: 80
     targetPort: 5000
   type: LoadBalancer
 
@@ -15,7 +15,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: desafio-stone-janoti-deployment
+  name: desafio-stone-janoti-deployment-gke
 spec:
   selector:
     matchLabels:
@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
       - name: desafio-stone-janoti
-        imagePullPolicy: Never
-        image: challenge-stone
+        imagePullPolicy: IfNotPresent
+        image: gcr.io/stone-challenge-janoti/challenge-stone
         ports:
         - containerPort: 5000
