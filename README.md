@@ -62,3 +62,15 @@ Acesso pelo PAAS Heroku:
      "cpf": 122312321321,
      "email": "ninguemusa@yahoo.com.br",
      "data_nasc": "19/01/1989"}'
+     
+     
+     
+TERRAFORM
+
+-- Para gerar toda a infra no GKE, executar dentro da pasta terraform-gke
+
+    -- terraform init
+    -- terraform apply
+    -- Após o término do Terraform criar a infra, execute:
+    -- make build # vai pegar as credenciais do gke para o gcloud e rodar kubectl apply no deployment.yaml, criando o serviço e o deploy no gke. A imagem Docker está registrada em gcr.io/stone-challenge-janoti/challenge-stone
+                
