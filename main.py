@@ -35,7 +35,7 @@ users = [ # Array of dictionaries. Memory Database of users
 
 
 @app.route("/users")
-"""Essa rota lista os usuários"""
+"""Essa rota lista usuários"""
 def get_users():
     return jsonify({'users': users})
 
