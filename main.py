@@ -1,7 +1,9 @@
 # Desafio Stone Devops SRE
 # API
-from flask import Flask, jsonify, abort, request
+# pylint: disable=missing-docstring
+# pylint: enable=missing-docstring
 import os
+from flask import Flask, jsonify, abort, request
 
 app = Flask(__name__)
 port = int(os.environ.get("PORT", 5000))
@@ -32,12 +34,14 @@ users = [ # Array of dictionaries. Memory Database of users
 ]
 
 
-@app.route("/users")
+@app.route("/users") 
+""" Essa rota lista usuários. """
 def get_users():
     return jsonify({'users': users})
 
 
-@app.route("/users/<string:cpf>", methods=['GET'])
+@app.route("/users/<string:cpf>", methods=['GET']) 
+""" Essa rota busca usuários por cpf. """
 def search_cpf(cpf):
     user = [user for user in users if user['cpf'] == cpf]
     if len(user) == 0:
@@ -46,6 +50,7 @@ def search_cpf(cpf):
 
 
 @app.route("/users", methods=['POST'])
+""" Essa rota adiciona usuario. """
 def insert_user():
     if not request.json:
         abort(400)
