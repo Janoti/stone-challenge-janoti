@@ -1,5 +1,7 @@
 # Desafio Stone Devops SRE
 # API
+# pylint: disable=missing-docstring
+# pylint: enable=missing-docstring
 import os
 from flask import Flask, jsonify, abort, request
 
