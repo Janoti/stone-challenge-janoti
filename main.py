@@ -34,14 +34,12 @@ users = [ # Array of dictionaries. Memory Database of users
 ]
 
 
-@app.route("/users")
-"""Essa rota lista usuários"""
+@app.route("/users") """ Essa rota lista usuários """
 def get_users():
     return jsonify({'users': users})
 
 
-@app.route("/users/<string:cpf>", methods=['GET'])
-"""Essa rota busca usuários por cpf"""
+@app.route("/users/<string:cpf>", methods=['GET']) """Essa rota busca usuários por cpf"""
 def search_cpf(cpf):
     user = [user for user in users if user['cpf'] == cpf]
     if len(user) == 0:
@@ -49,8 +47,7 @@ def search_cpf(cpf):
     return jsonify({'user': user[0]})
 
 
-@app.route("/users", methods=['POST'])
-"""Essa rota adiciona usuario"""
+@app.route("/users", methods=['POST']) """Essa rota adiciona usuario"""
 def insert_user():
     if not request.json:
         abort(400)
