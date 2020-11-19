@@ -65,9 +65,13 @@
     * Abra seu navegador em 127.0.0.1:8089
     
  * O seguinte teste de carga foi executado:
+
+ * Report Locust: <link> https://github.com/Janoti/stone-challenge-janoti/blob/master/load/Test%20Report.pdf </link>
  
     * Inserção de 10000 usuários com 100 inserções por segundo
-    * A app se 
+    * A app começou a degradar o Response Time, chegando em 36000ms quando se tinha inserido mais de 8000 usuários e o Rquests per Second chegava a mais de 720.
+    * Nesse momento a app começou a falhar, recusando conexões.
+    * Como se trata de um app que usa persistência em memória, segere-se um aumento de memória nas instâncias no GCP.
      
 ## TERRAFORM 
 
