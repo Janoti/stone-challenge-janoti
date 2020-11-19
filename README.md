@@ -53,6 +53,21 @@
 * Principais gráficos de Monitoramento das VMs
 
 ``` http://34.71.211.208:3000/d/4ZIrp9DMa/gce-vm-instance-monitoring?orgId=1&from=1605652821670&to=1605656421670&var-datasource=Google%20Cloud%20Monitoring&var-project= ```
+
+## Teste de Carga
+
+* Para os testes de carga contra a API no GKE, foi utilizado o Locust
+
+* Para instalação local executar:
+
+    * Ir para a pasta load 
+    * Executar ``` make local ```
+    * Abra seu navegador em 127.0.0.1:8089
+    
+ * O seguinte teste de carga foi executado:
+ 
+    * Inserção de 10000 usuários com 100 inserções por segundo
+    * A app se 
      
 ## TERRAFORM 
 
